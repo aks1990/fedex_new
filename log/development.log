@@ -1,0 +1,1417 @@
+  [1m[36m (124.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (133.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateShipments (20160503104407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "shipments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "city" varchar, "state" varchar, "postal_code" varchar, "length" float, "width" float, "height" float, "weight" float, "cylinder" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160503104407"]]
+  [1m[35m (118.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-03 16:28:55 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#index as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant Shipment::ActiveMerchant):
+  app/models/shipment.rb:2:in `<class:Shipment>'
+  app/models/shipment.rb:1:in `<top (required)>'
+  app/controllers/shipments_controller.rb:3:in `index'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (53.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-03 16:33:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.2ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 2000ms (Views: 1985.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/shipments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-05-03 16:33:44 +0530
+
+
+Started GET "/assets/shipments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-03 16:33:44 +0530
+
+
+Started GET "/shipments/new" for 127.0.0.1 at 2016-05-03 16:33:52 +0530
+Processing by ShipmentsController#new as HTML
+  Rendered shipments/_form.html.erb (44.7ms)
+  Rendered shipments/new.html.erb within layouts/application (49.1ms)
+Completed 200 OK in 73ms (Views: 65.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/shipments" for 127.0.0.1 at 2016-05-03 16:36:49 +0530
+Processing by ShipmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+W9t+MFDl5L4KfPoMMRZy2dxjjiFvD4koeGDACA8QZqG4ZCEsET5cmSUvC/CDOtsLkSITy5+O85LVhu+prI+/w==", "shipment"=>{"name"=>"anshul", "country"=>"CA", "city"=>"Ottawa", "state"=>"ON", "postal_code"=>"K1P 1J1", "length"=>"20 centimeters", "width"=>"20 centimeters", "height"=>"2 centimeters", "weight"=>"500 grams", "cylinder"=>"1"}, "commit"=>"Create Shipment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (55.5ms)[0m  INSERT INTO "shipments" ("name", "country", "city", "state", "postal_code", "length", "width", "height", "weight", "cylinder", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "anshul"], ["country", "CA"], ["city", "Ottawa"], ["state", "ON"], ["postal_code", "K1P 1J1"], ["length", 20.0], ["width", 20.0], ["height", 2.0], ["weight", 500.0], ["cylinder", "t"], ["created_at", "2016-05-03 11:06:49.335097"], ["updated_at", "2016-05-03 11:06:49.335097"]]
+  [1m[36m (201.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/shipments/1
+Completed 302 Found in 264ms (ActiveRecord: 257.0ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:36:49 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `ups_rates' for #<Shipment:0x007f6cd685d550>
+Did you mean?  update):
+    39:     <th>Service Name</th>
+    40:     <th>Price</th>
+    41:   </tr>
+    42:   <% @shipment.ups_rates.each do |rate| %>
+    43:     <tr>
+    44:       <td><%= rate.service_name %></td>
+    45:       <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+  app/views/shipments/show.html.erb:42:in `_app_views_shipments_show_html_erb___1173119609919793253_70052707957500'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.1ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.4ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:39:25 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (uninitialized constant Shipment::FedEx):
+    40:     <th>Price</th>
+    41:   </tr>
+    42:   
+    43:   <% @shipment.fedex_rates.each do |rate| %>
+    44:     <tr>
+    45:       <td><%= rate.service_name %></td>
+    46:       <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+  app/models/shipment.rb:39:in `fedex_rates'
+  app/views/shipments/show.html.erb:43:in `_app_views_shipments_show_html_erb___1173119609919793253_70052719931160'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.9ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.2ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:40:24 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.3ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (uninitialized constant Shipment::Location):
+    40:     <th>Price</th>
+    41:   </tr>
+    42:   
+    43:   <% @shipment.fedex_rates.each do |rate| %>
+    44:     <tr>
+    45:       <td><%= rate.service_name %></td>
+    46:       <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+  app/models/shipment.rb:17:in `origin'
+  app/models/shipment.rb:29:in `get_rates_from_shipper'
+  app/models/shipment.rb:40:in `fedex_rates'
+  app/views/shipments/show.html.erb:43:in `_app_views_shipments_show_html_erb___1173119609919793253_70052719931160'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.9ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.7ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:41:22 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2524.9ms)
+Completed 200 OK in 2580ms (Views: 2566.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/shipments/1/edit" for 127.0.0.1 at 2016-05-03 16:42:34 +0530
+Processing by ShipmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/_form.html.erb (6.3ms)
+  Rendered shipments/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/shipments/1" for 127.0.0.1 at 2016-05-03 16:43:23 +0530
+Processing by ShipmentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rku0OMHBU/nuvP1ukyLi0ys9k+mLQwDBjULeAgX0VEPRxUlEsMY9GXIBsqlh6lB0YgiVniCBBStn9Ua8g3orJg==", "shipment"=>{"name"=>"anshul", "country"=>"CA", "city"=>"Ottawa", "state"=>"ON", "postal_code"=>"K1P 1J1", "length"=>"40.0", "width"=>"40.0", "height"=>"20 centimeters", "weight"=>"1000 grams", "cylinder"=>"1"}, "commit"=>"Update Shipment", "id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "shipments" SET "length" = ?, "width" = ?, "height" = ?, "weight" = ?, "updated_at" = ? WHERE "shipments"."id" = ?[0m  [["length", 40.0], ["width", 40.0], ["height", 20.0], ["weight", 1000.0], ["updated_at", "2016-05-03 11:13:23.258235"], ["id", 1]]
+  [1m[35m (246.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/shipments/1
+Completed 302 Found in 255ms (ActiveRecord: 247.3ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:43:23 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2725.9ms)
+Completed 200 OK in 2741ms (Views: 2740.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-03 16:43:35 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+ActionView::MissingTemplate (Missing template shipments/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/acme/RubyProject/shipping_avail/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (25.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.1ms)
+
+
+Started GET "/shipments.json" for 127.0.0.1 at 2016-05-03 16:43:45 +0530
+Processing by ShipmentsController#index as JSON
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template shipments/index, application/index with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/acme/RubyProject/shipping_avail/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (27.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.9ms)
+
+
+Started GET "/shipments" for 127.0.0.1 at 2016-05-03 16:43:57 +0530
+Processing by ShipmentsController#index as HTML
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT "shipments".* FROM "shipments"[0m
+  Rendered shipments/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments.json" for 127.0.0.1 at 2016-05-03 16:44:04 +0530
+Processing by ShipmentsController#index as JSON
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template shipments/index, application/index with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/acme/RubyProject/shipping_avail/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (26.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.5ms)
+
+
+Started GET "/shipments/index.json" for 127.0.0.1 at 2016-05-03 16:44:28 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Shipment with 'id'=index):
+  app/controllers/shipments_controller.rb:7:in `show'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.8ms)
+
+
+Started GET "/shipments" for 127.0.0.1 at 2016-05-03 16:44:37 +0530
+Processing by ShipmentsController#index as HTML
+  [1m[36mShipment Load (0.3ms)[0m  [1mSELECT "shipments".* FROM "shipments"[0m
+  Rendered shipments/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:45:38 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2359.2ms)
+Completed 200 OK in 2383ms (Views: 2381.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:55:51 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+JSON::GeneratorError (only generation of JSON objects or arrays allowed):
+  app/controllers/shipments_controller.rb:9:in `show'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:56:28 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.3ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2328.2ms)
+Completed 200 OK in 2359ms (Views: 2345.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 16:56:45 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.3ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (1994.7ms)
+Completed 200 OK in 2040ms (Views: 2013.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 17:03:37 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2093.6ms)
+Completed 200 OK in 2121ms (Views: 2108.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 17:04:10 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2932.6ms)
+Completed 200 OK in 2963ms (Views: 2949.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-03 17:04:33 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+ActionView::MissingTemplate (Missing template shipments/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/acme/RubyProject/shipping_avail/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/acme/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (26.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.8ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 17:12:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.3ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (3669.6ms)
+Completed 200 OK in 4011ms (Views: 3978.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-03 17:15:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (4607.5ms)
+Completed 200 OK in 4926ms (Views: 4896.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-03 17:15:21 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2439.1ms)
+Completed 200 OK in 2445ms (Views: 2443.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-03 17:17:32 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2549.2ms)
+Completed 200 OK in 2553ms (Views: 2551.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-04 10:17:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.2ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 447ms (Views: 412.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/shipments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/shipments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-04 10:17:20 +0530
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:36:17 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.3ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (7619.5ms)
+Completed 500 Internal Server Error in 7693ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (FAILURE - 9999: Remote EJB method: getRates called on interface: com.fedex.nxgen.crs.v15.ientities.CrsInterface failed. Cause: weblogic.rmi.extensions.RequestTimeoutException: RJVM response from 'weblogic.rjvm.RJVMImpl@53c68e53 - id: '6772353064157751070S:qje01337.zmd.fedex.com:[7164,-1,-1,-1,-1,-1,-1]:domain:crs-server01337' connect time: 'Wed Apr 27 15:19:57 CDT 2016'' for 'getRates(Lcom.fedex.nxgen.crs.v15.ientities.RateRequest;)' timed out after: 5000ms.):
+    40:     <th>Price</th>
+    41:   </tr>
+    42:   
+    43:   <% @shipment.fedex_rates.each do |rate| %>
+    44:     <tr>
+    45:       <td><%= rate.service_name %></td>
+    46:       <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+  app/models/shipment.rb:29:in `get_rates_from_shipper'
+  app/models/shipment.rb:40:in `fedex_rates'
+  app/views/shipments/show.html.erb:43:in `_app_views_shipments_show_html_erb___3151016107141852007_70318547152040'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.8ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (123.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (167.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:36:25 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (3773.8ms)
+Completed 200 OK in 3793ms (Views: 3791.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:36:29 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (4520.9ms)
+Completed 200 OK in 4538ms (Views: 4536.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-04 10:36:33 +0530
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.2ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:36:33 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2493.4ms)
+Completed 200 OK in 2506ms (Views: 2505.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments" for 127.0.0.1 at 2016-05-04 10:36:59 +0530
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.2ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:37:00 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2981.6ms)
+Completed 200 OK in 2997ms (Views: 2995.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 10:38:20 +0530
+Processing by ShipmentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2420.4ms)
+Completed 200 OK in 2454ms (Views: 2453.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 10:39:06 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2405.8ms)
+Completed 200 OK in 2408ms (Views: 2407.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-04 12:30:54 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.2ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 289ms (Views: 273.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:30:59 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.3ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (3294.6ms)
+Completed 200 OK in 3316ms (Views: 3308.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:31:37 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2046.7ms)
+Completed 200 OK in 2064ms (Views: 2062.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:31:52 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3091.8ms)
+Completed 200 OK in 3096ms (Views: 3094.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:31:55 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2781.8ms)
+Completed 200 OK in 2784ms (Views: 2783.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:31:58 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (5046.1ms)
+Completed 200 OK in 5049ms (Views: 5047.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:03 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2553.8ms)
+Completed 200 OK in 2557ms (Views: 2555.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:05 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2896.1ms)
+Completed 200 OK in 2899ms (Views: 2897.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:08 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3080.2ms)
+Completed 200 OK in 3083ms (Views: 3081.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:11 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2488.8ms)
+Completed 200 OK in 2492ms (Views: 2490.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:14 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2135.4ms)
+Completed 200 OK in 2138ms (Views: 2137.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:16 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2286.2ms)
+Completed 200 OK in 2289ms (Views: 2287.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:18 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2293.7ms)
+Completed 200 OK in 2296ms (Views: 2295.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:20 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2074.1ms)
+Completed 200 OK in 2076ms (Views: 2075.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:23 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2388.0ms)
+Completed 200 OK in 2391ms (Views: 2389.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:25 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2326.1ms)
+Completed 200 OK in 2329ms (Views: 2327.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:32:27 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2187.4ms)
+Completed 200 OK in 2190ms (Views: 2189.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:14 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2315.5ms)
+Completed 200 OK in 2318ms (Views: 2317.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:18 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3215.8ms)
+Completed 200 OK in 3219ms (Views: 3217.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:21 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2326.7ms)
+Completed 200 OK in 2330ms (Views: 2328.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:24 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2386.7ms)
+Completed 200 OK in 2390ms (Views: 2388.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:26 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2662.7ms)
+Completed 200 OK in 2665ms (Views: 2664.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:29 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2246.7ms)
+Completed 200 OK in 2249ms (Views: 2248.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:31 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2265.0ms)
+Completed 200 OK in 2267ms (Views: 2266.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:33 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2087.1ms)
+Completed 200 OK in 2089ms (Views: 2088.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:35 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2117.4ms)
+Completed 200 OK in 2120ms (Views: 2119.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:37 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2007.9ms)
+Completed 200 OK in 2010ms (Views: 2009.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:33:39 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2295.8ms)
+Completed 200 OK in 2298ms (Views: 2297.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:35:05 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (4354.0ms)
+Completed 200 OK in 4372ms (Views: 4370.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:35:10 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (3273.3ms)
+Completed 200 OK in 3289ms (Views: 3288.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:35:13 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.2ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2195.4ms)
+Completed 200 OK in 2211ms (Views: 2209.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 12:35:15 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (2352.9ms)
+Completed 200 OK in 2367ms (Views: 2365.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:19 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2173.3ms)
+Completed 200 OK in 2176ms (Views: 2175.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:23 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (1970.4ms)
+Completed 200 OK in 1973ms (Views: 1972.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:25 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2178.1ms)
+Completed 200 OK in 2182ms (Views: 2180.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:27 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (8240.7ms)
+Completed 500 Internal Server Error in 8243ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (FAILURE - 9999: Remote EJB method: getRates called on interface: com.fedex.nxgen.crs.v15.ientities.CrsInterface failed. Cause: weblogic.rmi.extensions.RequestTimeoutException: RJVM response from 'weblogic.rjvm.RJVMImpl@ab89a18 - id: '6772353064157751070S:qje01337.zmd.fedex.com:[7164,-1,-1,-1,-1,-1,-1]:domain:crs-server01337' connect time: 'Wed Apr 27 15:19:57 CDT 2016'' for 'getRates(Lcom.fedex.nxgen.crs.v15.ientities.RateRequest;)' timed out after: 5000ms.):
+    1: json.array! @shipment.fedex_rates.each do |rate|
+    2:   json.shipping do
+    3:     json.service_name rate.service_name
+    4:     json.price number_to_currency(rate.price.to_f / 100)
+  app/models/shipment.rb:29:in `get_rates_from_shipper'
+  app/models/shipment.rb:40:in `fedex_rates'
+  app/views/shipments/show.json.jbuilder:1:in `_app_views_shipments_show_json_jbuilder___3970461593315857271_47116557041940'
+
+
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.2ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/acme/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (45.4ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:35 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2308.1ms)
+Completed 200 OK in 2311ms (Views: 2310.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:38 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2612.7ms)
+Completed 200 OK in 2616ms (Views: 2614.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:40 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3048.7ms)
+Completed 200 OK in 3051ms (Views: 3050.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:43 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2805.2ms)
+Completed 200 OK in 2808ms (Views: 2806.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:46 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2772.8ms)
+Completed 200 OK in 2776ms (Views: 2774.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:49 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3134.4ms)
+Completed 200 OK in 3137ms (Views: 3136.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:52 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3090.7ms)
+Completed 200 OK in 3093ms (Views: 3092.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:35:55 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.2ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (3045.4ms)
+Completed 200 OK in 3050ms (Views: 3047.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:36:21 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2695.7ms)
+Completed 200 OK in 2698ms (Views: 2697.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:36:27 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2685.5ms)
+Completed 200 OK in 2689ms (Views: 2687.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:36:30 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2643.2ms)
+Completed 200 OK in 2646ms (Views: 2644.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:37:15 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShipment Load (0.1ms)[0m  [1mSELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2357.2ms)
+Completed 200 OK in 2362ms (Views: 2360.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shipments/1.json" for 127.0.0.1 at 2016-05-04 12:37:36 +0530
+Processing by ShipmentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.1ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shipments/show.json.jbuilder (2305.3ms)
+Completed 200 OK in 2308ms (Views: 2307.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (54.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (64.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateShipments (20160503104407)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (105.3ms)[0m  [1mCREATE TABLE "shipments" ("id" serial primary key, "name" character varying, "country" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "length" float, "width" float, "height" float, "weight" float, "cylinder" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160503104407"]]
+  [1m[36m (16.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'shipments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-04 15:27:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShipmentsController#index as HTML
+  [1m[35mShipment Load (0.6ms)[0m  SELECT "shipments".* FROM "shipments"
+  Rendered shipments/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 323ms (Views: 301.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/shipments/new" for 127.0.0.1 at 2016-05-04 15:27:31 +0530
+Processing by ShipmentsController#new as HTML
+  Rendered shipments/_form.html.erb (71.8ms)
+  Rendered shipments/new.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 140ms (Views: 129.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/shipments" for 127.0.0.1 at 2016-05-04 15:28:58 +0530
+Processing by ShipmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pi0Q+SZboZruLeq/fY1d2LyC62HnDojRxU3vfCawJvmxUvTH6qU65/8yz4wX9emR/G5CE6cbVg0sj2eZWF0ulg==", "shipment"=>{"name"=>"anshul", "country"=>"CA", "city"=>"Ottawa", "state"=>"ON", "postal_code"=>"K1P 1J1", "length"=>"40 centimeters", "width"=>"40 centimeters", "height"=>"40 centimeters", "weight"=>"1000 grams", "cylinder"=>"1"}, "commit"=>"Create Shipment"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (61.8ms)[0m  INSERT INTO "shipments" ("name", "country", "city", "state", "postal_code", "length", "width", "height", "weight", "cylinder", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["name", "anshul"], ["country", "CA"], ["city", "Ottawa"], ["state", "ON"], ["postal_code", "K1P 1J1"], ["length", 40.0], ["width", 40.0], ["height", 40.0], ["weight", 1000.0], ["cylinder", "t"], ["created_at", "2016-05-04 09:58:58.881696"], ["updated_at", "2016-05-04 09:58:58.881696"]]
+  [1m[36m (21.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/shipments/1
+Completed 302 Found in 93ms (ActiveRecord: 84.1ms)
+
+
+Started GET "/shipments/1" for 127.0.0.1 at 2016-05-04 15:28:58 +0530
+Processing by ShipmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mShipment Load (0.4ms)[0m  SELECT  "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shipments/show.html.erb within layouts/application (3406.0ms)
+Completed 200 OK in 3430ms (Views: 3420.3ms | ActiveRecord: 0.4ms)
