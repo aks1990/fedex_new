@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_shipping'
 
 gem 'rails_12factor', group: :production
+gem 'money'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

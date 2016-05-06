@@ -1,16 +1,22 @@
-class ShipmentsController < ApplicationController
-	require 'json'
+class API::V1::ShipmentsController < ApplicationController
+	require 'money'
 	def index
 		@shipments = Shipment.all
+		respond_to do |format|
+      		format.json { render :json => @shipments }
+    	end
 	end
 
 	def show
 		@shipment = Shipment.find(params[:id])
-		require 'json'
-		# => true
-		# puts @shipment.to_json
-		
-
+		user_id = params[:id]
+		respond_to do |format|
+			@complete_service_json = @shipment.fedex_rates.each do |rate| 
+				# service_name = rate.service_name
+				# service_price = Money.new(rate.price, rate.currency).format
+	      	end
+	      	format.json { render :json => @complete_service_json }
+      	end
 	end
 
 	def new
@@ -19,11 +25,13 @@ class ShipmentsController < ApplicationController
 
 	def create
 		@shipment = Shipment.new(shipment_params)
-		if @shipment.save
-		  redirect_to @shipment, notice: "The shipment has been successfully created.  Below are your shipping options."
-		else
-		  render action: "new"
-		end
+		respond_to do |format|
+	      if @shipment.save
+	        format.json { render :json => @shipment }
+	      else
+	        format.json { render :json => @shipment.errors, status: :unprocessable_entity }
+	      end
+    	end
 	end
 
 	def edit
