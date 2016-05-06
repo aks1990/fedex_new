@@ -24,7 +24,12 @@ class API::V1::ShipmentsController < ApplicationController
 	end
 
 	def create
-		@shipment = Shipment.new(shipment_params)
+		tp = shipment_params
+		postal_code = tp[:postal_code]
+		location = ZipCodes.identify(postal_code)
+		tp[:city] = location[:city]
+		tp[:state] = location[:state_code]
+		@shipment = Shipment.new(tp)
 		respond_to do |format|
 	      if @shipment.save
 	        format.json { render :json => @shipment }
