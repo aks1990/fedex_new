@@ -2,7 +2,7 @@ class Shipment < ActiveRecord::Base
   require 'active_shipping'
   # include ActiveMerchant::Shipping
 
-  validates :name, presence: true
+  # validates :name, presence: true
   validates :country, presence: true
   validates :city, presence: true
   validates :state, presence: true

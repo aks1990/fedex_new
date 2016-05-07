@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_shipping'
 gem 'zip-codes'
+gem 'geokit'
 gem 'rails_12factor', group: :production
 gem 'money'
 # Use ActiveModel has_secure_password

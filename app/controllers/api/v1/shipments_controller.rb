@@ -1,5 +1,6 @@
 class API::V1::ShipmentsController < ApplicationController
 	require 'money'
+	require 'geokit'
 	def index
 		@shipments = Shipment.all
 		respond_to do |format|
@@ -26,9 +27,10 @@ class API::V1::ShipmentsController < ApplicationController
 	def create
 		tp = shipment_params
 		postal_code = tp[:postal_code]
-		location = ZipCodes.identify(postal_code)
-		tp[:city] = location[:city]
-		tp[:state] = location[:state_code]
+		location = geo = Geokit::Geocoders::GoogleGeocoder.geocode(postal_code)
+		tp[:city] = location.city
+		tp[:state] = location.state
+		tp[:country] = location.country
 		@shipment = Shipment.new(tp)
 		respond_to do |format|
 	      if @shipment.save
