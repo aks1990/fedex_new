@@ -1,5 +1,7 @@
 class API::V1::VariantsController < ApplicationController
 	def create
+		puts "=========variant=========="
+		puts variant_params
 		@variant = Variant.new(variant_params)
 		respond_to do |format|
 	      if @variant.save
@@ -13,6 +15,6 @@ class API::V1::VariantsController < ApplicationController
 	private
 
 	def variant_params
-		params.require(:variant).permit(:actual_price, :type, :type_price, :variant_id)
+		params.require(:variant).permit(:actual_price, :wood_type, :type_price, :variant_id)
 	end
 end
